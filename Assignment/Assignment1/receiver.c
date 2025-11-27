@@ -1,3 +1,6 @@
+//Student: Aakritikc
+//Date created: 11/27/2025
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
