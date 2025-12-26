@@ -1,10 +1,11 @@
 """
-This program contains Queue implementations used to store vehicles
-for each road lane in the traffic junction simulator
+This program simulates traffic management at a junction by handling vehicles in lanes
+and deciding which lane shoudl get priority at a traffic light
 """
 
 from collections import deque
 
+# Defined a class VehicleQueue
 class VehicleQueue:
 
     def __init__(self, lane_name):
@@ -28,6 +29,7 @@ class VehicleQueue:
     def is_empty(self):
         """
         Checking if the queue is empty
+        Returns True if empty, otherwise returns False
         """
         return len(self.queue) == 0
 
