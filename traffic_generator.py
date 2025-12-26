@@ -3,16 +3,16 @@
 
 import random
 import time
+import os
 
 # Defining roads and their lanes
-roads = ["A", "B", "C", "D"]
-lanes = ["L1", "L2", "L3"]   # L2 is priority lane
+ROADS = ["A", "B", "C", "D"]
+
 
 def generate_vehicle():
     # Randomly to choose the roads and lanes
-    road = random.choice(roads)
-    lane = random.choice(lanes)
-
+    road = random.choice(ROADS)
+    lane = "L1" # L1 is the incoming lane
     vehicle_id = f"V{random.randint(1000, 9999)}" # Choose vehicle id number between 1000 and 9999
 
     """
@@ -20,14 +20,11 @@ def generate_vehicle():
     """
     with open(f"{road}{lane}.txt", "a") as f:
         f.write(vehicle_id + "\n")
-
-    print(f"[GENERATOR] Added {vehicle_id} to lane {road}{lane}")
-
-def main():
-    print("Traffic Generator Running...")
-    while True:
-        generate_vehicle()
-        time.sleep(random.uniform(0.5, 2.0))
+    print(f"[GENERATOR] Vehicle {vehicle_id} arrived at {road}{lane}")
 
 if __name__ == "__main__":
-    main()
+    for r in ROADS: open(f"{r}L1.txt", "w").close()
+    while True:
+        generate_vehicle()
+        time.sleep(random.uniform(0.5, 1.5))
+
