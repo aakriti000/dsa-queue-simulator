@@ -2,36 +2,39 @@
 This program simulates traffic management at a junction by handling vehicles in lanes
 and deciding which lane shoudl get priority at a traffic light
 """
-
+import os
 from collections import deque
 
 # Defined a class VehicleQueue
 class VehicleQueue:
-
     def __init__(self, lane_name):
         self.lane_name = lane_name
         self.queue = deque()
+    
+    def sync_with_file(self):
+        filename = f"{self.lane_name}.txt"
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                lines = f.readlines()
 
-    def enqueue(self, vehicle_id):
-        """
-        Adding a vehicle to the queue
-        """
-        self.queue.append(vehicle_id)
+            # Update internal deque with IDs from the file
+                self.queue = deque([line.strip() for line in lines if line.strip()])
 
-    def dequeue(self):
-        """
-        To remove and return the first vehicle from the queue
-        """
-        if self.is_empty():
-            return None
-        return self.queue.popleft()
+    def save_to_file(self):
+         filename = f"{self.lane_name}.txt"
+         with open(filename, "w") as f:
+            for v in self.queue:
+                f.write(v + "\n")
 
-    def is_empty(self):
-        """
-        Checking if the queue is empty
-        Returns True if empty, otherwise returns False
-        """
-        return len(self.queue) == 0
+    
+    def dequeue_multiple(self, count):
+        served =[]
+        for _ in range(int(count)):
+            if self.queue:
+                served.append(self.queue.popleft())
+                
+                return served
+       
 
     def size(self):
         """
@@ -39,45 +42,4 @@ class VehicleQueue:
         """
         return len(self.queue)
 
-    def display(self):
-        """
-        Display all vehicles in the queue (for debugging)
-        """
-        return list(self.queue)
-
-#Lane priority queue for traffic light control
-
-class LanePriorityQueue:
     
-    # Priority queue to decide which lane should be given priority first
-
-    def __init__(self):
-        self.priority = {}
-
-    def add_lane(self, lane_name):
-        """
-        Adding a lane with default priority 1
-        """
-        self.priority[lane_name] = 1
-
-    def set_priority(self, lane_name, value):
-        """
-        Update the priority of a lane
-        """
-        if lane_name in self.priority:
-            self.priority[lane_name] = value
-
-    def get_next_lane(self):
-        """
-        Returning the lane with the highest priority
-        """
-        if not self.priority:
-            return None
-        return max(self.priority, key=self.priority.get)
-
-    def reset_priority(self):
-        """
-        Reset all lanes to normal priority
-        """
-        for lane in self.priority:
-            self.priority[lane] = 1
