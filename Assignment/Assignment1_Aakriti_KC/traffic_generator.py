@@ -1,5 +1,6 @@
-Author: Aakriti KC
-Description: "This code simulates traffic by randomly generating vehicles and distributing them across three lanes per road, with lane L2 acting as the priority lane."
+#Author: Aakriti KC
+#Description: "This code simulates traffic by randomly generating vehicles and distributing them across three lanes per road, with lane L2 acting as the priority lane."
+
 import random
 import time
 
