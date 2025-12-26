@@ -8,7 +8,7 @@ import time
 roads = ["A", "B", "C", "D"]
 lanes = ["L1", "L2", "L3"]   # L2 is priority lane
 
-def generate_vehicle():
+def generate_vehicle(): # Defining a function
     # Randomly to choose the roads and lanes
     road = random.choice(roads)
     lane = random.choice(lanes)
