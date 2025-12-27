@@ -16,25 +16,6 @@ L3 : Free left-turn lane
 Lane AL2 is treated as a priority lane.  
 When the number of vehicles in AL2 exceeds a threshold, it is served first until congestion reduces.
 
-## Data Structures used
-Queue (FIFO) : To store vehicles waiting in each lane 
-Priority Logic : To give priority to lane AL2 when congested 
-
-Queues ensure fair servicing of vehicles in First-In-First-Out order.
-
-## Functions that use data structures
-
-# Append 
-`generate_vehicle` - Simulates a vehicle arriving at the back(tail) of the queue
-
-# Deque initialization
-`sync_with_file` - Loads the current queue state into memory for processing
-
-# Fifo popleft()
-`dequeue_multiple` - Removes vehicles from the front(head) when the light is green
-
-# To check length
-`size()` - Monitors congestion for priority lane
 
 ## Features
 
