@@ -15,6 +15,7 @@ def draw_vehicle(screen, x, y, road_name):
         pygame.draw.rect(screen, CAR_BLUE, (x, y, width, height), border_radius=5)
         w_y = y + 30 if road_name == "A" else y + 5
         pygame.draw.rect(screen, WINDSHIELD, (x + 3, w_y, 24, 8))
+
     else: # Horizontal roads
         width, height = 45, 30
         pygame.draw.rect(screen, CAR_BLUE, (x, y, width, height), border_radius=5)
@@ -27,10 +28,10 @@ def main():
     pygame.display.set_caption("Traffic Junction Visualization")
     clock = pygame.time.Clock()
     font = pygame.font.SysFont("Arial", 20)
-    
-    # Initializing Queues 
+
+    # Initializing Queues
     queues = {r: VehicleQueue(f"{r}L1") for r in ["A", "B", "C", "D"]}
-    
+
     # Drawing coordinates
     offsets = {
         "A": (WIDTH//2 - 45, 80, 0, 60),      # Top
@@ -46,20 +47,21 @@ def main():
                 running = False
 
         screen.fill(BG_COLOR)
-        
-        # Drawing Road Surface
+
+            # Drawing Road Surface
         pygame.draw.rect(screen, (50, 50, 50), (WIDTH//2 - ROAD_W//2, 0, ROAD_W, HEIGHT))
         pygame.draw.rect(screen, (50, 50, 50), (0, HEIGHT//2 - ROAD_W//2, WIDTH, ROAD_W))
 
         for r, q in queues.items():
             # SYNC with the .txt files
             q.sync_with_file()
-            
+
+           
             start_x, start_y, step_x, step_y = offsets[r]
-            
+
             # Draw Vehicles
             for i in range(q.size()):
-                if i > 8: break 
+                if i > 8: break
                 vx = start_x + (i * step_x)
                 vy = start_y + (i * step_y)
                 draw_vehicle(screen, vx, vy, r)
@@ -68,10 +70,12 @@ def main():
             text = font.render(f"Road {r}: {q.size()}", True, (0, 0, 0))
             screen.blit(text, (start_x, start_y - 50 if r in ["A","C"] else start_y - 30))
 
+
         pygame.display.flip()
-        clock.tick(30) 
+        clock.tick(30)
 
     pygame.quit()
+
 
 if __name__ == "__main__":
     main()
