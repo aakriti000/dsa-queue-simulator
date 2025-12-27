@@ -4,7 +4,7 @@ from queues import VehicleQueue
 
 ROADS = ["A", "B", "C", "D"] 
 GREEN_TIME = 3        # Light stays green for 3 seconds
-PRIORITY_LANE = "AL1" # L1 is the incoming lane where cars wait
+PRIORITY_LANE = "AL2" # L2 is the incoming lane where cars wait
 
 def calculate_v_average(queues):
     total = sum(q.size() for q in queues.values())
