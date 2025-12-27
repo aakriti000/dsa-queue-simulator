@@ -60,6 +60,16 @@ Queues ensure fair servicing of vehicles in First-In-First-Out order.
 # queues.py 
   Contains Queue implementation used in the simulator.
 
+# Time complexity analysis
+| Operation / Function | Time Complexity | File / Location        | Technical Explanation |
+|----------------------|-----------------|------------------------|-----------------------|
+| Vehicle Arrival      | O(1)            | `traffic_generator.py` | Appending a single line to a file and choosing a random road are constant-time operations. |
+| Queue Dispatch       | O(1)            | `queues.py`            | `deque.popleft()` removes the first element without shifting others in memory, unlike a standard list. |
+| Lane Access          | O(1)            | `simulator.py`         | Accessing `queues[current_road]` uses a dictionary (hash map) lookup, which runs in constant time. |
+| File Syncing         | O(n)            | `queues.py`            | `sync_with_file()` uses `readlines()`, which scans the entire file to rebuild the queue. |
+| State Persistence    | O(n)            | `queues.py`            | `save_to_file()` iterates through every vehicle ID in the queue to rewrite the file. |
+| Traffic Calculation  | O(R) → O(1)     | `simulator.py`         | `calculate_v_average()` loops through the number of roads. Since R = 4 (fixed), this is effectively O(1). |
+
 
 ## Installation and prerequisites
 This project requires **Python 3.x** to run as intended. So, ensure you have **Python 3.x** installed.
