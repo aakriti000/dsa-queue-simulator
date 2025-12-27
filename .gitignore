@@ -1,0 +1,6 @@
+# lane files
+*.txt
+
+# Ignore python cache
+__pycache__/
+*.pyc
