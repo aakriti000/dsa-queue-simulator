@@ -140,7 +140,7 @@ Output:A **Pygame** window will launch that simulates real-time traffic intersec
 
 ## Demo(GIF/video)
 Add your demo files in the repo and link them here:
-  ![Image](https://github.com/user-attachments/assets/af8c5045-562e-4549-8cf5-5a98c2c9a39a)
+  ![Image](https://github.com/user-attachments/assets/687361f5-d491-4a75-9122-35e466373604)
 
   
 **Name** : Aakriti K.C
