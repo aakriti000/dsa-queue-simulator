@@ -142,9 +142,13 @@ Output:A **Pygame** window will launch that simulates real-time traffic intersec
 Add your demo files in the repo and link them here:
   ![Image](https://github.com/user-attachments/assets/af8c5045-562e-4549-8cf5-5a98c2c9a39a)
 
-# Author: Aakriti K.C  
-
-
+  
+**Name** : Aakriti K.C
+**Class** : CS-I
+**Roll Number** : 29
+**Assignment** : 1
+**Submitted  to** : Rupak Ghimire
+**Course** : Data structures and Algorithms(COMP202)
 
 
 
