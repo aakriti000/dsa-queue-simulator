@@ -4,7 +4,7 @@ This project is a simulation of a traffic junction implemented using queue data 
 
 The system simulates real-time vehicle generation, traffic light control, priority lane handling, and visualizes the traffic flow using Pygame.
 
-## Problem Description
+## Project Description
 
 A traffic junction connects four major roads (A, B, C, and D).  
 Each road has three lanes:
@@ -130,9 +130,10 @@ Output:A **Pygame** window will launch that simulates real-time traffic intersec
 
 ## Demo(GIF/video)
 Add your demo files in the repo and link them here:
-  
+  ![Image](https://github.com/user-attachments/assets/af8c5045-562e-4549-8cf5-5a98c2c9a39a)
 
 # Author: Aakriti K.C  
+
 
 
 
