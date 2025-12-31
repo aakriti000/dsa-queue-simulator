@@ -1,3 +1,10 @@
+**Name** : Aakriti K.C
+**Class** : CS-I
+**Roll Number** : 29
+**Assignment** : 1
+**Submitted  to** : Rupak Ghimire
+**Course** : Data structures and Algorithms(COMP202)
+
 ## DSA Queue Simulator 
 
 This project is a simulation of a traffic junction implemented using queue data structure as part of the  Data Structures and Algorithms(COMP 202) assignment.
@@ -16,7 +23,6 @@ L3 : Free left-turn lane
 Lane AL2 is treated as a priority lane.  
 When the number of vehicles in AL2 exceeds a threshold, it is served first until congestion reduces.
 
-
 ## Features
 
 **Priority logic**:  Priority logic is designed to handle congestion specially for Lane AL2( Priority lane).
@@ -27,18 +33,40 @@ When the number of vehicles in AL2 exceeds a threshold, it is served first until
 
 **Dynamic Traffic Generation**: A separate generator script `traffic_generator.py` simulates varying vehicle loads by writing data to file buffers in real-time.
  
+## Data structures used
+| Data Structure        | Purpose                                   | Technical Implementation                         |
+|-----------------------|-------------------------------------------|--------------------------------------------------|
+| Double-Ended Queue    | Managing vehicle flow (FIFO)              | `collections.deque`                              |
+| Dictionary            | Mapping roads to their respective queues  | `{ road_name: VehicleQueue_Object }`             |
+| List                  | Sequence control for traffic light cycles | `road_sequence = ["A", "B", "C", "D"]`            |
+| Text Files            | Persistent storage and inter-process communication | `.txt` files (e.g., `AL1.txt`)              |
+
+## Functions using data structures
+
+**Append**
+generate_vehicle - Simulates a vehicle arriving at the back(tail) of the queue. 
+
+**Deque initialization**
+sync_with_file - Loads the current queue state into memory for processing. 
+
+**Fifo popleft()**
+dequeue_multiple - Removes vehicles from the front(head) when the light is green. 
+
+**To check length**
+size() - Monitors congestion for priority lane.
+
 ## Project Files
 
-# traffic_generator.py
+**traffic_generator.py**
   Generates vehicles randomly and writes them to lane-specific files.
   
-# simulator.py 
+**simulator.py** 
   Reads vehicle data, applies traffic light and priority logic, and removes vehicles from lanes.
 
-# visualization.py  
+**visualization.py**  
   Uses Pygame to visualize the traffic junction and display real-time vehicle counts.
 
-# queues.py 
+**queues.py** 
   Contains Queue implementation used in the simulator.
 
 # Time complexity analysis
@@ -123,13 +151,14 @@ Output:A **Pygame** window will launch that simulates real-time traffic intersec
 Add your demo files in the repo and link them here:
   ![Image](https://github.com/user-attachments/assets/687361f5-d491-4a75-9122-35e466373604)
 
-  
-**Name** : Aakriti K.C
-**Class** : CS-I
-**Roll Number** : 29
-**Assignment** : 1
-**Submitted  to** : Rupak Ghimire
-**Course** : Data structures and Algorithms(COMP202)
+## References
+
+***Pygame documentation: https://www.pygame.org/docs/***
+***Python 3.13 documentation: https://docs.python.org/3.13/***
+***Assignment: COMP202 Assignment I (Traffic Light Simulation and Queue Management)***
+**8Python Tutorial: https://www.w3schools.com/python/**
+
+
 
 
 
